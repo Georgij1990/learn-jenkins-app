@@ -59,10 +59,6 @@ pipeline {
                   }
                 }
 
-                environment {
-                  CI_ENVIRONMENT_URL = 'https://heroic-lollipop-5d1f28.netlify.app'
-                }
-
                 steps {
                     sh '''
                         npm install serve
@@ -106,6 +102,11 @@ pipeline {
               reuseNode true
             }
           }
+
+          environment {
+            CI_ENVIRONMENT_URL = 'https://heroic-lollipop-5d1f28.netlify.app'
+          }
+
           steps {
               sh '''
                   npx playwright test --reporter=html
